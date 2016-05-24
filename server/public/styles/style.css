@@ -1,0 +1,10 @@
+.orders-display {
+  display:inline-block;
+  float:right;
+  margin-right: 15%;
+}
+
+.customers-display {
+  display:inline-block;
+
+}

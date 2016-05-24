@@ -9,14 +9,50 @@
 <body ng-app="ordersApp">
   <div ng-controller="IndexController">
 
+<section class="customers-display">
 
-  <div ng-init="getStuff()"> GET THE CUSTOMERS </div>
-    <div ng-repeat="person in customers">
+  <div ng-init="getStuff()">
+    <div ng-repeat="person in customers" >
       <p>
-        {{person.first_name}} {{person.last_name}} <button ng-click="getOrders(person.id)"> retrieve orders </button>
-
+        {{person.first_name}} {{person.last_name}} <button ng-if="person.count > 0" ng-click="getOrders(person.id)"> retrieve orders </button>
+        <span ng-if="person.count <= 0" ng-click="getOrders(person.id)"> No Orders </span>
       </p>
     </div>
+</div>
+</section>
+
+<section class="orders-display">
+<h3>{{orders[0].first_name}} {{orders[0].last_name}}</h3>
+
+
+    <table>
+      <thead>
+        <tr>
+          <th>Order #</th>
+          <th>Date</th>
+          <th>Item</th>
+          <th>Address</th>
+          <th>Quantity</th>
+          <th>Price</th>
+          <th>line-total</th>
+        </tr>
+      </thead>
+      <tr ng-repeat="line in orders">
+        <td>{{line.id}}</td>
+        <td>{{line.order_date}}</td>
+        <td>{{line.description}}</td>
+        <td>{{line.street}} {{line.city}}, {{line.state}} {{line.zip}} </td>
+        <td>{{line.quantity}}</td>
+        <td>{{line.unit_price}}</td>
+        <td ng-init="lineTotal = (line.unit_price * line.quantity)">{{lineTotal}}</td>
+      </tr>
+
+    </table>
+
+</section>
+
+
+
 
 
   </div>

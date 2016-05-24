@@ -1,6 +1,9 @@
 var application = angular.module('ordersApp', []);
-
+//this is our app
 application.controller('IndexController', ['$scope', '$http', function($scope, $http) {
+
+
+  $scope.lineTotal = 0;
 
   $scope.getStuff = function() {
     $http({

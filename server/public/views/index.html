@@ -39,12 +39,12 @@
       </thead>
       <tr ng-repeat="line in orders">
         <td>{{line.id}}</td>
-        <td>{{line.order_date}}</td>
+        <td>{{line.order_date | date}}</td>
         <td>{{line.description}}</td>
         <td>{{line.street}} {{line.city}}, {{line.state}} {{line.zip}} </td>
         <td>{{line.quantity}}</td>
-        <td>{{line.unit_price}}</td>
-        <td ng-init="lineTotal = (line.unit_price * line.quantity)">{{lineTotal}}</td>
+        <td>{{line.unit_price | currency}}</td>
+        <td ng-init="lineTotal = (line.unit_price * line.quantity)">{{lineTotal | currency}}</td>
       </tr>
 
     </table>

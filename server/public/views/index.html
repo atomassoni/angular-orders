@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+  <link rel="stylesheet" href="/styles/style.css" />
+  <script type="text/javascript" src="/assets/vendors/angular.min.js"></script>
+  <script type="text/javascript" src="/scripts/client.js"></script>
+</head>
+<body ng-app="ordersApp">
+  <div ng-controller="IndexController">
+
+
+  <div ng-init="getStuff()"> GET THE CUSTOMERS </div>
+    <div ng-repeat="person in customers">
+      <p>
+        {{person.first_name}} {{person.last_name}} <button ng-click="getOrders(person.id)"> retrieve orders </button>
+
+      </p>
+    </div>
+
+
+  </div>
+
+
+
+</body>
+</html>
